@@ -71,15 +71,19 @@ public class RegistroResumos {
 		
 	}
 	
-	//metodo bonus para procurar
-	public String[] busca(String chaveDeBusca) {
-		List<String> respostas = new ArrayList<>();
-		for (int i = 0; i < contadorResumos; i++) {
-			if (resumos[i].toLowerCase().contains(chaveDeBusca.toLowerCase())) {
-				respostas.add(temas[i]);
-		    }
-		}
-		return respostas.toArray(new String[0]);
-	}
+	// Metodo bonus para procurar
+    public String[] busca(String chaveDeBusca) {
+        List<String> resultados = new ArrayList<>(); //cria a lista de resultados
 
+        for (int i = 0; i < contadorResumos; i++) {
+            if (resumos[i].toLowerCase().contains(chaveDeBusca.toLowerCase())) {
+                resultados.add(temas[i]);
+            }
+        }
+        // ordena os resultados em ordem alfabetica
+        resultados.sort(String::compareToIgnoreCase);
+        
+        return resultados.toArray(new String[0]);
+    }
+    
 }
