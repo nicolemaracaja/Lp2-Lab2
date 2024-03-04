@@ -16,6 +16,7 @@ public class CoisaBonus {
 
 		public static void registrarDescanso() {
 			Descanso descanso = new Descanso();
+			descanso.definirEmoji("¯\\_(ツ)_/¯");
 			System.out.println(descanso.getStatusGeral());
 			descanso.defineHorasDescanso(30);
 			descanso.defineNumeroSemanas(1);
