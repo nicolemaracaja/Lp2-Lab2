@@ -30,9 +30,7 @@ public class Disciplina {
 		this.qtdNotas = qtdNotas;
 		this.notas = new double[qtdNotas];
 		this.pesos = new int[qtdNotas];
-		Arrays.fill(pesos, 1);
 		cadastraPesos(pesos);
-		calculaMediaPonderada();
 	}
 	
 	//metodo bonus para cadastrar pesos
@@ -44,13 +42,24 @@ public class Disciplina {
 	
 	//metodo bonus para calcular media ponderada
 	public void calculaMediaPonderada() {
-		double total = 0;
-		double somaPesos = 0;
-		for (int i = 0; i < qtdNotas; i++) {
-			total += notas[i] * (pesos[i]);
-			somaPesos += pesos[i];
+		if (this.pesos != null) {
+			double total = 0;
+			int somaPesos = 0;
+			for (int i = 0; i < qtdNotas; i++) {
+				total += notas[i] * (pesos[i]);
+				somaPesos += pesos[i];			
+			media = total / somaPesos;
+			}			
 		}
-		media = total / somaPesos;	
+	}
+	
+	//metodo para calcular media normal
+	public void calculaMedia(){
+		double total = 0;
+		for (double n : notas) {
+			total += n;
+		}
+		media = total / notas.length;
 	}
 	
 	// metodo para cadastrar o total de horas
@@ -64,12 +73,8 @@ public class Disciplina {
         if (nota >= 1 && nota <= 4) {
         	notas[nota - 1] = valorNota;
         }
-        // calcula a media
-        double total = 0;
-        for (double n : notas) {
-            total += n;
-        }
-        media = total / notas.length;
+        calculaMedia();
+        calculaMediaPonderada();
 	}
 
 	public boolean aprovado() {
