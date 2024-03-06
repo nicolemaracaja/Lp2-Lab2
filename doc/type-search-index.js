@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"br.edu.ufcg.computacao.p2lp2.coisa","l":"Descanso"}];updateSearchResults();
