@@ -31,9 +31,7 @@ public class Descanso {
 	
 	// metodo para obter o status geral
 		public String getStatusGeral() {
-			boolean mudancaDeEstado = verificarStatus(historico);
-
-		    if (mudancaDeEstado) {
+		    if (verificarStatus(historico)) {
 		        this.emoji = null; //remove o emoji se houver mudanca no status
 		    }
 			
@@ -68,17 +66,18 @@ public class Descanso {
 		}
 	
 	//metodo para verificar se o status do aluno mudou
-	private boolean verificarStatus(List<String> historico) {
-		for (int i = 1; i < historico.size(); i++) {
-			String primeiroCaractereAtual = historico.get(i);
-	        String primeiroCaractereAnterior = historico.get(i - 1);
-	        if (emoji != null) {
-	        	if (!primeiroCaractereAtual.equals(primeiroCaractereAnterior)) {
-					return true;
-				}
-			}
+		private boolean verificarStatus(List<String> historico) {
+			if (historico.size() > 1) {
+				String ultimoEstado = historico.get(historico.size() - 1);
+		        String penultimoEstado = historico.get(historico.size() - 2);
+
+		        if (ultimoEstado.startsWith("c") && penultimoEstado.startsWith("d")) {
+		            return true;  //ha uma mudança de estado de descansado para cansado
+		        } else if (ultimoEstado.startsWith("d") && penultimoEstado.startsWith("c")) {
+		            return true;  //ha uma mudança de estado de cansado para descansado
+		        }
+		    }
+		    return false;
 		}
-		return false;
-	}
 }
 	
