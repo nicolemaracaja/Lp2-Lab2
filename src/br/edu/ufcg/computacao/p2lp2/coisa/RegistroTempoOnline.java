@@ -35,6 +35,7 @@ public class RegistroTempoOnline {
 		}
 	}
 	
+	@Override
 	public String toString() {
 		return disciplina + " " + tempoOnline + "/" + metaTempoOnline;
 	}

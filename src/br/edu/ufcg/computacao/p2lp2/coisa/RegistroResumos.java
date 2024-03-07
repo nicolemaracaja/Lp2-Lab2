@@ -10,6 +10,7 @@ public class RegistroResumos {
 	private String[] temas;
 	private String[] resumos;
 	
+	//construtor principal
 	public RegistroResumos(int limiteResumos) {
 		this.limiteResumos = limiteResumos;
 		this.temas = new String[limiteResumos];
@@ -28,11 +29,12 @@ public class RegistroResumos {
             temas[i] = temas[i + 1];
             resumos[i] = resumos[i + 1];
         }
-        temas[limiteResumos - 1] = tema; //adiciona na ultima pos
+        temas[limiteResumos - 1] = tema; //adiciona na ultima posicao
         resumos[limiteResumos - 1] = resumo;
 		}
 	}
 	
+	//pega os reumos e coloca dentro do array resultados
 	public String[] pegaResumos() {
 		String[] resultados = new String[contadorResumos];
         for (int i = 0; i < contadorResumos; i++) {
@@ -42,6 +44,7 @@ public class RegistroResumos {
 		
 	}
 	
+	//formatacao da saida do apanhado geral de resumos (qtd cadastrados e temas dos resumos)
 	public String imprimeResumos() {
 		 StringBuilder sb = new StringBuilder();
 	        
@@ -57,10 +60,13 @@ public class RegistroResumos {
 	     return sb.toString();
 	}
 	
+	//metodo para contar a qtd de resumos cadastrados
 	public int conta() {
 		return contadorResumos;
 		
 	}
+	
+	//metodo que retorna se o resumo existe no sistema
 	public boolean temResumo(String tema) {
 		for (int i = 0; i < contadorResumos; i++) {
             if (temas[i].equals(tema)) {
@@ -71,7 +77,7 @@ public class RegistroResumos {
 		
 	}
 	
-	// Metodo bonus para procurar
+	// Metodo bonus para procurar resumos com base na chave de busca
     public String[] busca(String chaveDeBusca) {
         List<String> resultados = new ArrayList<>(); //cria a lista de resultados
 
@@ -80,7 +86,7 @@ public class RegistroResumos {
                 resultados.add(temas[i]);
             }
         }
-        // ordena os resultados em ordem alfabetica
+        //ordena os resultados em ordem alfabetica
         resultados.sort(String::compareToIgnoreCase);
         
         return resultados.toArray(new String[0]);

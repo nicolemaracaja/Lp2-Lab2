@@ -62,13 +62,14 @@ public class Disciplina {
 		media = total / notas.length;
 	}
 	
-	// metodo para cadastrar o total de horas
+	//metodo para cadastrar o total de horas
 	public void cadastraHoras(int horas) {
 		if (horas > 0) {
             this.horas += horas;
 		}
 	}
 	
+	//metodo para cadastrar a nota
 	public void cadastraNota(int nota, double valorNota) {
         if (nota >= 1 && nota <= 4) {
         	notas[nota - 1] = valorNota;
