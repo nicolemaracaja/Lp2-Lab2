@@ -2,6 +2,11 @@ package br.edu.ufcg.computacao.p2lp2.coisa;
 
 import java.util.Arrays;
 
+/**
+ * Classe CoisaBonus, que serve para testar as funcionalidades bônus.
+ * 
+ * @author Nicole Brito Maracajá.
+ */
 public class CoisaBonus {
 
 		public static void main(String[] args) {
@@ -16,14 +21,14 @@ public class CoisaBonus {
 
 		public static void registrarDescanso() {
 			Descanso descanso = new Descanso();
-			descanso.definirEmoji("¯\\_(ツ)_/¯");
+			descanso.definirEmoji("<(^_^<)");
+			System.out.println(descanso.getStatusGeral());
 			System.out.println(descanso.getStatusGeral());
 			descanso.defineHorasDescanso(30);
 			descanso.defineNumeroSemanas(1);
 			System.out.println(descanso.getStatusGeral());
 			descanso.defineHorasDescanso(26);
 			descanso.defineNumeroSemanas(2);
-			descanso.definirEmoji("<(^_^<)");
 			System.out.println(descanso.getStatusGeral());
 			descanso.defineHorasDescanso(26);
 			descanso.defineNumeroSemanas(1);
@@ -61,11 +66,13 @@ public class CoisaBonus {
 		    System.out.println(fmcc2);
 			int[] pesosLab2 = {3, 2, 1};
 			Disciplina lab2 = new Disciplina("LABORATORIO DE PROGRAMACAO 2", 3, pesosLab2);
+			lab2.cadastraPesos(pesosLab2);
 			lab2.cadastraHoras(30);
 	        lab2.cadastraNota(1, 6.0);
 	        lab2.cadastraNota(2, 10.0);
 	        lab2.cadastraNota(3, 8.0);
-	        System.out.println(lab2);
+	        //lab2.cadastraNota(3, 10.0);
+	        System.out.println(lab2.toString());
 		}
 
 		private static void registrarResumos() {
@@ -85,6 +92,9 @@ public class CoisaBonus {
 			System.out.println("Busca de Resumos de Estudo: ");
 			String[] resultados = meusResumos.busca("UM");
 			System.out.println(Arrays.toString(resultados));
+			String[] resultados2 = meusResumos.busca("OBJETOS");
+			System.out.println(Arrays.toString(resultados2));
+			
 		}
 		
 	}

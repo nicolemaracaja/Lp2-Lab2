@@ -3,6 +3,11 @@ package br.edu.ufcg.computacao.p2lp2.coisa;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+* Representação do descanso do estudante, baseado em suas horas de descanso e a quantidade de semanas registradas por ele.
+* 
+* @author Nicole Brito Maracajá
+*/
 public class Descanso {
 
 	private int horasDescanso;
@@ -10,46 +15,67 @@ public class Descanso {
 	private String emoji;
 	private List<String> historico = new ArrayList<String>();
 
-	// metodo para definir o numero de horas de descanso por semana
+	/**
+	* Define as horas de descanso do aluno.
+	* @param valor a quantidade de horas de descanso
+	*/
 	public void defineHorasDescanso(int valor) {
 		if (valor >= 0) {
 			this.horasDescanso = valor;
 		}
 	}
 	
-	// metodo para definir o numero de semanas
+	/**
+	* Define a quantidade de semanas.
+	* @param valor a quantidade de semanas.
+	*/
 	public void defineNumeroSemanas(int valor) {
 		if (valor >= 0) {
 			this.numeroSemanas = valor;
 	    }
 	}
 	
-	//metodo para definir o emoji
+	/**
+	* Define o emoji registrado pelo aluno.
+	* @param valor o emoji registrado.
+	*/
 	public void definirEmoji(String valor) {
 		this.emoji = valor;
 	}
 	
-	// metodo para obter o status geral
-		public String getStatusGeral() {
-		    if (verificarStatus()) {
-		        this.emoji = null; //remove o emoji se houver mudanca no status
-		    }
-			
+	/**
+	* Verifica o estado geral do aluno, baseado em suas horas de descanso e na quantidade de semanas registrada por ele.
+	* @return status do aluno.
+	*/
+	public String getStatusGeral() {
+
 			if (horasDescanso > 0 && numeroSemanas > 0) {
+				
+				//adiciona os status ao historico
+				if ((horasDescanso / numeroSemanas) >= 26) {
+					historico.add("d");
+				} else {
+					historico.add("c");
+				}
+				
+				//remove o emoji se houver mudanca no status
+				if (verificarStatus()) { 
+			        this.emoji = null;
+			    }
+				
+				//quando o emoji eh definido, entra nesse bloco
 				if (emoji != null) {
 					if ((horasDescanso / numeroSemanas) >= 26) {
-						historico.add("d");
 						return "descansado" + " - " + emoji;
 					} else {
-						historico.add("c");
 						return "cansado" + " - " + emoji;
 					}
+					
+				//condicao para quando nao define emoji
 				} else {
 					if ((horasDescanso / numeroSemanas) >= 26) {
-						historico.add("d");
 						return "descansado";
 					} else {
-						historico.add("c");
 						return "cansado";
 					}
 				}
@@ -65,18 +91,22 @@ public class Descanso {
 			}
 		}
 	
-	//metodo para verificar se o status do aluno mudou
+	/**
+	* Verifica se o estado do aluno mudou.
+	* @return boolean verdadeiro se houver mudança no status, falso se não hoiuver.
+	*/
 	private boolean verificarStatus() {
-		if (historico.size() > 1) {
-			String ultimoEstado = historico.get(historico.size() - 1);
-		    String penultimoEstado = historico.get(historico.size() - 2);
+		
+			if (historico.size() > 1) {
+				String ultimoEstado = historico.get(historico.size() - 1);
+				String penultimoEstado = historico.get(historico.size() - 2);
 
-		    if (ultimoEstado.startsWith("c") && penultimoEstado.startsWith("d")) {
-		    	return true;  //ha uma mudança de estado de descansado para cansado
-		    } else if (ultimoEstado.startsWith("d") && penultimoEstado.startsWith("c")) {
-		        return true;  //ha uma mudança de estado de cansado para descansado
-		    }
-		}
+				if (ultimoEstado.equals("c") && penultimoEstado.equals("d")) {
+					return true;  //ha uma mudança de estado de descansado para cansado
+				} else if (ultimoEstado.equals("d") && penultimoEstado.equals("c")) {
+					return true;  //ha uma mudança de estado de cansado para descansado
+				}
+			}
 		return false;
 	}
 }
