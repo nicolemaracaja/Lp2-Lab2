@@ -10,9 +10,24 @@ import java.util.List;
 */
 public class RegistroResumos {
 
+	/**
+	* Quantidade máxima de resumos que o aluno pode registrar.
+	*/
 	private int limiteResumos;
+	
+	/**
+	* Contador da quantidade de resumos que o aluno registrou.
+	*/
 	private int contadorResumos;
+	
+	/**
+	* Array de temas dos resumos registrados pelo aluno.
+	*/
 	private String[] temas;
+	
+	/**
+	* Array de resumos registrados pelo aluno.
+	*/
 	private String[] resumos;
 	
 	/**

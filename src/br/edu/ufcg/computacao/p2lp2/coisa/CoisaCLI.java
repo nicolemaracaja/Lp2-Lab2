@@ -1,6 +1,7 @@
 package br.edu.ufcg.computacao.p2lp2.coisa;
 
 import java.util.Scanner;
+
 /**
  * Classe CoisaCLI, que serve para testar o Linha de Comando do Bônus.
  * 

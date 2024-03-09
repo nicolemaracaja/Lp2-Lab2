@@ -10,11 +10,23 @@ import java.util.List;
 */
 public class Descanso {
 
+	/**
+	* Quantidade de horas de descanso registrada pelo aluno.
+	*/
 	private int horasDescanso;
+	/**
+	* Quantidade de número de semanas registrada pelo aluno.
+	*/
 	private int numeroSemanas;
+	/**
+	* Emoji que expressa a sensação do aluno.
+	*/
 	private String emoji;
+	/**
+	* Histórico do status geral do aluno.
+	*/
 	private List<String> historico = new ArrayList<String>();
-
+	
 	/**
 	* Define as horas de descanso do aluno.
 	* @param valor a quantidade de horas de descanso

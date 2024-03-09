@@ -7,8 +7,19 @@ package br.edu.ufcg.computacao.p2lp2.coisa;
 */
 public class RegistroTempoOnline {
 
+	/**
+	* Nome da disciplina.
+	*/
 	private String disciplina;
+	
+	/**
+	* Registro do tempo online que o aluno dedicou à disciplina.
+	*/
 	private int tempoOnline;
+	
+	/**
+	* Meta de tempo online que o aluno deve cumprir naquela disciplina.
+	*/
 	private int metaTempoOnline;
 		
 	/**

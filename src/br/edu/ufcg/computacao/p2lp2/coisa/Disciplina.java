@@ -9,11 +9,34 @@ import java.util.Arrays;
 */
 public class Disciplina {
 
+	/**
+	* Nome da disciplina paga pelo estudante.
+	*/
 	private String disciplina;
+	
+	/**
+	* Quantidade de horas que o aluno dedica à disciplina.
+	*/
     private int horas;
+    
+    /**
+    * Array de notas do aluno na disciplina.
+    */
     private double[] notas;
+    
+    /**
+    * Média das notas do aluno na disciplina.
+    */
     private double media;
+    
+    /**
+    * Quantidade de notas que a disciplina possui.
+    */
     private int qtdNotas;
+    
+    /**
+    * Array de pesos para as notas das disciplinas.
+    */
     private int[] pesos;
     
     /**
