@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psf version="2.0">
+<provider id="org.eclipse.egit.core.GitProvider">
+<project reference="1.0,https://github.com/p2lp2-2023-2/laboratorio-2-coisa-nicolebritomaracaja,main,."/>
+</provider>
+</psf>

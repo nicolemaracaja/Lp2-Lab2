@@ -47,7 +47,6 @@ public class RegistroTempoOnline {
 	*@param valor a quantidade de tempo registrada.
 	*/
 	public void adicionaTempoOnline (int valor) {
-		this.tempoOnline = tempoOnline;
 		if (valor > 0) {
 			tempoOnline += valor;
 		}
